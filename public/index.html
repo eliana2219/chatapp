@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="nav-heading">
+                chitchat
+            </div>
+            <ul>
+                <li>home</li>
+                <li>faq</li>
+                <li class="login-btn">login</li>
+            </ul>
+        </div>
+
+        <div class="form">
+            <div class="success hide-success" id="success">
+                <img src="img/check-check-mark.gif" alt="">
+                <div class="message"></div>
+            </div>
+            <div class="bg">
+
+            </div>
+            <div class="login show">
+                <div class="form-text">
+                    Login Form
+                </div>
+                <form action="" id="logingform">
+                    <div class="input-group">
+                        <input type="email" placeholder="email" name="email">
+                        <div class="err" data-err="lemail"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="password"  placeholder="password" name="password">
+                        <div class="err" data-err="lpass"></div>
+                    </div>
+                    <button class="formbtn" type="submit">submit</button>
+                </form>
+                <div class="account-switch">
+                    don't have and account ? <a href="#" class="toggle">signup</a>
+                </div>
+            </div>
+            <div class="login hide">
+                <div class="form-text">
+                    signup Form
+                </div>
+                <form action="" id="signupform">
+                    <div class="input-group">
+                        <input type="email"  placeholder="email" name="email">
+                        <div class="err" data-err="semail"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="password"  placeholder="password" name="password">
+                        <div class="err" data-err="spass"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="password"  placeholder="confirm password" name="confirmpass">
+                        <div class="err" data-err="cpass"></div>
+                    </div>
+                    <button class="formbtn" type="submit">submit</button>
+                </form>
+                <div class="account-switch">
+                    already have an account ? <a href="#" class="toggle">signin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="module.js"></script>
+    <script src="index.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+        * {
+            --primary: #0A0A14;
+            --text-primary: #FBFDF5;
+            --muted-text: #fbfdf5b7;
+            --secondary: #0c0c2c;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text-primary);
+            font-family: "Inter", sans-serif;
+
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .sidenav {
+            width: 27%;
+            border-right: 2px solid var(--secondary);
+            box-shadow: 1px 1px 4px var(--secondary);
+            max-height: 100vh;
+            /* overflow-y: auto; */
+            padding: 20px;
+            position: fixed;
+            top: 0;
+        }
+
+        .sidebarhead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: var(--secondary);
+            border-radius: 20px;
+            box-shadow: 1px 1px 4px 4px rgba(23, 23, 170, 0.486);
+
+        }
+
+        .sidebarhead img {
+            display: inline-block;
+            clip-path: circle();
+            object-fit: contain;
+            object-position: top;
+            width: 15%;
+            margin-right: 20px;
+        }
+
+        .sidebarusername {
+            font-size: 15px;
+            text-transform: capitalize;
+        }
+
+        .chatlist .sidebardescription {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            line-clamp: 1;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+        }
+
+        .sidebardescription {
+            font-size: 11px;
+            color: var(--muted-text);
+            margin-top: 5px;
+        }
+
+        .chatlistcontainer {
+            margin-top: 30px;
+            overflow-y: auto;
+            /* background-color: red; */
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            max-height: 72vh;
+
+        }
+
+        .chatlistcontainer::-webkit-scrollbar {
+            display: none;
+        }
+
+        .chatlist {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #0b0b176b;
+            border-radius: 10px;
+            margin-block: 8px;
+            cursor: pointer;
+        }
+
+        .chatlistcontainer img {
+            display: inline-block;
+            clip-path: circle();
+            object-fit: contain;
+
+            object-position: top;
+            width: 15%;
+            margin-right: 20px;
+        }
+
+        .chatlistusername {
+            font-size: 15px;
+            text-transform: capitalize;
+        }
+
+        .chatlistmessage {
+            font-size: 11px;
+            color: var(--muted-text);
+            margin-top: 5px;
+        }
+
+        .chatbody {
+            width: 100%;
+            margin-left: 27%;
+        }
+
+        .chatbody .chathead {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 20px;
+            border-bottom: 2px solid var(--secondary);
+            box-shadow: 0px 0px 2px var(--muted-text), 1px 1px 10px var(--secondary);
+        }
+
+        .currentchatdet {
+            display: flex;
+            align-items: center;
+        }
+
+        .currentchatdet img {
+            display: inline-block;
+            clip-path: circle();
+            object-fit: contain;
+
+            object-position: top;
+            width: 5%;
+            margin-right: 20px;
+        }
+
+        .currentchatheadname {
+            font-size: 15px;
+        }
+
+        .currentchatheadonline {
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .mainchatbody {
+            position: relative;
+            /* background-color: red; */
+        }
+
+        .mainchatbody .sender {
+            display: flex;
+            justify-content: right;
+        }
+
+        .mainchatbody .sender .msg {
+            background-color: var(--secondary);
+            max-width: 50%;
+            padding: 30px 50px;
+            margin: 20px;
+            border-radius: 20px 20px 0px 20px;
+
+        }
+
+        .mainchatbody .reciever {
+            display: flex;
+            justify-content: left;
+        }
+
+        .mainchatbody .reciever .msg {
+            background-color: var(--secondary);
+            max-width: 50%;
+            padding: 30px 50px;
+            margin: 20px;
+            border-radius: 20px 20px 20px 0px;
+
+        }
+
+        .msg {
+            font-size: 14px;
+            color: var(--muted-text)
+        }
+
+        .chatinput {
+            background-color: var(--primary);
+            position: fixed;
+            bottom: 0px;
+            width: 95%;
+            height: 100px;
+            display: flex;
+
+            padding: 30px;
+        }
+
+        .chatinput input {
+            width: 70%;
+            background: none;
+            border-radius: 20px;
+            margin-right: 20px;
+            color: var(--text-primary);
+            padding: 10px 20px;
+        }
+
+        .chatinput button {
+            padding: 0px 10px;
+            border-radius: 20px;
+            background-color: var(--secondary);
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidenav">
+            <div class="sidebarhead">
+                <img src="img/54b19ada-d53e-4ee9-8882-9dfed1bf1396.jpg" alt="">
+                <div>
+                    <div class="sidebarusername">
+                        victormk2024
+                    </div>
+                    <div class="chatlistmessage">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, ex.
+                    </div>
+                </div>
+            </div>
+            <div class="chatlistcontainer">
+               
+            </div>
+        </div>
+        <div class="chatbody">
+            <div class="chathead">
+                <div class="currentchatdet">
+                    <img src="img/54b19ada-d53e-4ee9-8882-9dfed1bf1396.jpg" alt="">
+                    <div class="currentchathead">
+                        <div class="currentchatheadname">contact name</div>
+                        <div class="currentchatheadonline">online</div>
+                    </div>
+                </div>
+                <div class="doticon">
+                    ...
+                </div>
+            </div>
+            <div class="mainchatbody">
+                
+                
+            </div>
+            <form class="chatinput" id="chatinput">
+                <input name="textinput">
+                <button>send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="module.js"></script>
+    <script src="chat.js" type="module"></script>
+</body>
+
+</html>

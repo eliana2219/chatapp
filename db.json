@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "email": "chekwubeuchenna84@gmail.com",
+      "password": "password123",
+      "isonline": true,
+      "id": "IpJqLrwoWBM"
+    },
+    {
+      "email": "victormk043@gmail.com",
+      "password": "mkyde1123",
+      "isonline": true,
+      "id": "gYB5XEIG2Ik"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
